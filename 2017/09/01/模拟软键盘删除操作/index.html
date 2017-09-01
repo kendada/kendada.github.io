@@ -95,16 +95,16 @@
 
 
 
-<meta name="description" content="title: Hexo 模拟软键盘删除操作date: 2017-01-01 16:03:21tags: #####模拟软键盘删除操作 ######第一种方式：1234567891011121314151617181920212223 * 删除表情和文字 */private void deleteEmoji(String str, int selection) &amp;#123;    int star">
+<meta name="description" content="title: Hexo 模拟软键盘删除操作date: 2017-01-01 16:03:21tags: 模拟软键盘删除操作 第一种方式：1234567891011121314151617181920212223 * 删除表情和文字 */private void deleteEmoji(String str, int selection) &amp;#123;    int start = -1, end">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2017/09/01/模拟软键盘删除操作/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="title: Hexo 模拟软键盘删除操作date: 2017-01-01 16:03:21tags: #####模拟软键盘删除操作 ######第一种方式：1234567891011121314151617181920212223 * 删除表情和文字 */private void deleteEmoji(String str, int selection) &amp;#123;    int star">
-<meta property="og:updated_time" content="2017-09-01T09:33:32.000Z">
+<meta property="og:description" content="title: Hexo 模拟软键盘删除操作date: 2017-01-01 16:03:21tags: 模拟软键盘删除操作 第一种方式：1234567891011121314151617181920212223 * 删除表情和文字 */private void deleteEmoji(String str, int selection) &amp;#123;    int start = -1, end">
+<meta property="og:updated_time" content="2017-09-01T09:37:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="title: Hexo 模拟软键盘删除操作date: 2017-01-01 16:03:21tags: #####模拟软键盘删除操作 ######第一种方式：1234567891011121314151617181920212223 * 删除表情和文字 */private void deleteEmoji(String str, int selection) &amp;#123;    int star">
+<meta name="twitter:description" content="title: Hexo 模拟软键盘删除操作date: 2017-01-01 16:03:21tags: 模拟软键盘删除操作 第一种方式：1234567891011121314151617181920212223 * 删除表情和文字 */private void deleteEmoji(String str, int selection) &amp;#123;    int start = -1, end">
 
 
 
@@ -266,7 +266,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-01T17:33:32+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-01T17:37:05+08:00">
                 2017-09-01
               </time>
             
@@ -306,23 +306,10 @@
       
         <hr>
 <p>title: Hexo 模拟软键盘删除操作<br>date: 2017-01-01 16:03:21<br>tags:</p>
-<p>#####模拟软键盘删除操作</p>
-<p>######第一种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> * 删除表情和文字</div><div class="line"> */</div><div class="line">private void deleteEmoji(String str, int selection) &#123;</div><div class="line">    int start = -1, end = -1;</div><div class="line">    Matcher matcher = emoji.matcher(str);</div><div class="line">    while (matcher.find()) &#123; // 遍历最后一个</div><div class="line">        String key = matcher.group();</div><div class="line">        start = matcher.start();</div><div class="line">        end = matcher.start() + key.length();</div><div class="line">    &#125;</div><div class="line">    if (start != -1 &amp;&amp; end != -1) &#123; // 删除表情</div><div class="line">        messageContent.getText().delete(start, end);</div><div class="line">    &#125; else &#123;</div><div class="line">        if (selection &gt; 0) &#123; // 删除文字</div><div class="line">            messageContent.getText().delete(selection - 1, selection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 表情规则</div><div class="line">private Pattern emoji = Pattern.compile(</div><div class="line">        &quot;[\ud83c\udc00-\ud83c\udfff]|[\ud83d\udc00-\ud83d\udfff]|[\u2600-\u27ff]&quot;, Pattern.UNICODE_CASE</div><div class="line">                | Pattern.CASE_INSENSITIVE);</div></pre></td></tr></table></figure></p>
-<p>######第二种方式：</p>
-<pre><code class="/**">* 模拟删除按键
-*/
-private void deleteKey() {
-    AsyncTask.execute(new Runnable() {
-        @Override
-        public void run() {
-            try {
-                Instrumentation inst = new Instrumentation();
-                inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DEL);
-            } catch (Exception ignored) {}
-        }
-    });
-}
-</code></pre>
+<h5 id="模拟软键盘删除操作"><a href="#模拟软键盘删除操作" class="headerlink" title="模拟软键盘删除操作"></a>模拟软键盘删除操作</h5><blockquote>
+<p>第一种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> * 删除表情和文字</div><div class="line"> */</div><div class="line">private void deleteEmoji(String str, int selection) &#123;</div><div class="line">    int start = -1, end = -1;</div><div class="line">    Matcher matcher = emoji.matcher(str);</div><div class="line">    while (matcher.find()) &#123; // 遍历最后一个</div><div class="line">        String key = matcher.group();</div><div class="line">        start = matcher.start();</div><div class="line">        end = matcher.start() + key.length();</div><div class="line">    &#125;</div><div class="line">    if (start != -1 &amp;&amp; end != -1) &#123; // 删除表情</div><div class="line">        messageContent.getText().delete(start, end);</div><div class="line">    &#125; else &#123;</div><div class="line">        if (selection &gt; 0) &#123; // 删除文字</div><div class="line">            messageContent.getText().delete(selection - 1, selection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 表情规则</div><div class="line">private Pattern emoji = Pattern.compile(</div><div class="line">        &quot;[\ud83c\udc00-\ud83c\udfff]|[\ud83d\udc00-\ud83d\udfff]|[\u2600-\u27ff]&quot;, Pattern.UNICODE_CASE</div><div class="line">                | Pattern.CASE_INSENSITIVE);</div></pre></td></tr></table></figure></p>
+<p>第二种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">* 模拟删除按键</div><div class="line">*/</div><div class="line">private void deleteKey() &#123;</div><div class="line">AsyncTask.execute(new Runnable() &#123;</div><div class="line">@Override</div><div class="line">public void run() &#123;</div><div class="line">try &#123;</div><div class="line">Instrumentation inst = new Instrumentation();</div><div class="line">inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DEL);</div><div class="line">&#125; catch (Exception ignored) &#123;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
@@ -407,8 +394,17 @@ private void deleteKey() {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">Kendada</p>
@@ -451,6 +447,22 @@ private void deleteKey() {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#模拟软键盘删除操作"><span class="nav-number">1.</span> <span class="nav-text">模拟软键盘删除操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
