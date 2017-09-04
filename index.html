@@ -418,6 +418,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/21/android自定义View/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kendada">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/21/android自定义View/" itemprop="url">android自定义View</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-21T11:13:21+08:00">
+                2016-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="模拟软键盘删除操作"><a href="#模拟软键盘删除操作" class="headerlink" title="模拟软键盘删除操作"></a>模拟软键盘删除操作</h5><blockquote>
+<p>第一种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">  * 删除表情和文字</div><div class="line">  */</div><div class="line"> private void deleteEmoji(String str, int selection) &#123;</div><div class="line">     int start = -1, end = -1;</div><div class="line">     Matcher matcher = emoji.matcher(str);</div><div class="line">     while (matcher.find()) &#123; // 遍历最后一个</div><div class="line">         String key = matcher.group();</div><div class="line">         start = matcher.start();</div><div class="line">         end = matcher.start() + key.length();</div><div class="line">     &#125;</div><div class="line">     if (start != -1 &amp;&amp; end != -1) &#123; // 删除表情</div><div class="line">         messageContent.getText().delete(start, end);</div><div class="line">     &#125; else &#123;</div><div class="line">         if (selection &gt; 0) &#123; // 删除文字</div><div class="line">             messageContent.getText().delete(selection - 1, selection);</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> // 表情规则</div><div class="line"> private Pattern emoji = Pattern.compile(</div><div class="line">         &quot;[\ud83c\udc00-\ud83c\udfff]|[\ud83d\udc00-\ud83d\udfff]|[\u2600-\u27ff]&quot;, Pattern.UNICODE_CASE</div><div class="line">                 | Pattern.CASE_INSENSITIVE);</div></pre></td></tr></table></figure></p>
+<p>第二种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">  * 模拟删除按键</div><div class="line">  */</div><div class="line">  private void deleteKey() &#123;</div><div class="line">      AsyncTask.execute(new Runnable() &#123;</div><div class="line">          @Override</div><div class="line">          public void run() &#123;</div><div class="line">              try &#123;</div><div class="line">                  Instrumentation inst = new Instrumentation();</div><div class="line">                  inst.sendKeyDownUpSync(KeyEvent.KEYCODE_DEL);</div><div class="line">              &#125; catch (Exception ignored) &#123;</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2012/01/01/Hexo-第一篇博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -569,7 +692,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
