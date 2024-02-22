@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.wanandroid.demo01",
+    "sha256_cert_fingerprints":
+    ["1E:D4:31:E0:DF:E8:F5:BF:33:7E:35:A6:57:7F:BA:F2:64:76:BA:D8:CA:8F:EA:0C:37:8B:32:28:60:06:DF:28"]
+  }
+}]
